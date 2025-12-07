@@ -1,0 +1,12 @@
+body{
+    background-image: url(./logoimage/aboutus.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+p {
+    margin-bottom: 50%;
+}
+.card{
+    color: chartreuse;
+}

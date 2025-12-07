@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login System - Mini Project</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ffecd2, #fcb69f);
+            margin: 0;
+            padding: 0;
+        }
+
+        .login-box {
+            width: 400px;
+            background: #fff;
+            padding: 25px;
+            margin: 80px auto;
+            border-radius: 10px;
+            box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            margin-top: 12px;
+            display: block;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border: 1px solid #aaa;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            margin-top: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 14px;
+        }
+
+        .links a {
+            text-decoration: none;
+            font-size: 14px;
+            color: #0066cc;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+        .error, .success {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: green;
+        }
+
+        @media(max-width: 480px) {
+            .login-box {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-box">
+        <h2>User Login</h2>
+
+        <form id="loginForm" onsubmit="return validateLogin()">
+
+            <label>Username:</label>
+            <input type="text" id="username" placeholder="Enter username">
+
+            <label>Password:</label>
+            <input type="password" id="password" placeholder="Enter password">
+
+            <button type="submit">Login</button>
+        </form>
+
+        <p id="status"></p>
+
+        <div class="links">
+            <p><a href="signup.html">Create New Account</a></p>
+            <p><a href="forgot.html">Forgot Password?</a></p>
+        </div>
+    </div>
+
+    <script>
+        function validateLogin() {
+            const username = document.getElementById("username").value.trim();
+            const password = document.getElementById("password").value.trim();
+            const status = document.getElementById("status");
+
+            if (username === "" || password === "") {
+                status.innerHTML = "⚠ Please fill all fields!";
+                status.className = "error";
+                return false;
+            }
+
+            if (password.length < 5) {
+                status.innerHTML = "⚠ Password must be at least 5 characters!";
+                status.className = "error";
+                return false;
+            }
+
+            status.innerHTML = "✔ Login successful!";
+            status.className = "success";
+
+            document.getElementById("loginForm").reset();
+            return false;
+        }
+    </script>
+
+</body>
+
+</html>
